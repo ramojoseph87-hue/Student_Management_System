@@ -116,7 +116,7 @@ $general_average = ($total_units > 0) ? round($total_grade_points / $total_units
         .grades-container {
             margin-top: 20px;
             width: 100%;
-            overflow-x: auto; /* Para mag-scroll kapag maliit ang screen */
+            overflow-x: auto;
         }
         .summary-card {
             display: flex;
@@ -211,16 +211,14 @@ $general_average = ($total_units > 0) ? round($total_grade_points / $total_units
             <ul class="nav-links">
                 <li><a href="Dashboard_Student.php">🏠 Dashboard</a></li>
                 <li><a href="Profile.php">👤 My Profile</a></li> 
-                <li><a href="add_subjects.php">➕ Add Subjects</a></li> 
-         
+                <li><a href="add_subjects.php">📘 Enrollment</a></li> 
+                <li><a href="assessment_form.php">📄 Assessment Form</a></li> 
                 <li><a href="classssched.php">🗓️ Class Schedule</a></li>
-                <li><a href="view.php" class="active">📝 View Grades</a></li> <!-- ✅ ACTIVE -->
+                <li><a href="view.php" class="active">📝 View Grades</a></li>
                 <li><a href="Academic_Records.php">📁 Academic Records</a></li>
                 <li><a href="payment_history.php">💵 Payment History</a></li>
-                <li><a href="messages.php">📩 Messages</a></li>
-                <li><a href="requirements.php">📑 Requirements</a></li>
                 <li><a href="Announcements.php">🔔 Announcements</a></li>
-                <li><a href="settings.php">⚙️ Settings</a></li>
+                <li><a href="change_password.php">🔐 Change Password</a></li>
                 <li><a href="help.php">❓ Help & Support</a></li>
             </ul>
 

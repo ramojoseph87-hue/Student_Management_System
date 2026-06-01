@@ -11,7 +11,7 @@ $schedules = [
         'code' => 'CC 101',
         'room' => 'Computer Lab 101',
         'teacher' => 'Mr. John Doe',
-        'color' => '#EF4444' // Kulay pula para madaling makilala
+        'color' => '#EF4444'
     ],
     [
         'day' => 'Monday',
@@ -20,7 +20,7 @@ $schedules = [
         'code' => 'CS 102',
         'room' => 'IT Laboratory 203',
         'teacher' => 'Ms. Jane Smith',
-        'color' => '#2563EB' // Kulay asul
+        'color' => '#2563EB'
     ],
     [
         'day' => 'Tuesday',
@@ -29,7 +29,7 @@ $schedules = [
         'code' => 'GE 101',
         'room' => 'Room 305 - Bldg. B',
         'teacher' => 'Dr. Michael Lee',
-        'color' => '#10B981' // Kulay berde
+        'color' => '#10B981'
     ],
     [
         'day' => 'Wednesday',
@@ -47,7 +47,7 @@ $schedules = [
         'code' => 'MATH 101',
         'room' => 'Math Center 401',
         'teacher' => 'Mrs. Sarah Cruz',
-        'color' => '#F59E0B' // Kulay kahel/dilaw
+        'color' => '#F59E0B'
     ],
     [
         'day' => 'Thursday',
@@ -74,7 +74,7 @@ $schedules = [
         'code' => 'PE 101',
         'room' => 'Main Gymnasium',
         'teacher' => 'Mr. Mark Santos',
-        'color' => '#8B5CF6' // Kulay lila
+        'color' => '#8B5CF6'
     ]
 ];
 
@@ -169,7 +169,7 @@ $days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday
             color: var(--text-muted);
             margin: 3px 0 8px 0;
         }
-        .teacher-name { /* ✅ PANGALAN NG GURO - PINAKA-MALINAW */
+        .teacher-name {
             font-size: 13px;
             color: #2563EB;
             font-weight: 600;
@@ -239,16 +239,14 @@ $days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday
             <ul class="nav-links">
                 <li><a href="Dashboard_Student.php">🏠 Dashboard</a></li>
                 <li><a href="Profile.php">👤 My Profile</a></li> 
-                <li><a href="add_subjects.php">➕ Add Subjects</a></li> 
+                <li><a href="add_subjects.php">📘 Enrollment</a></li> 
                 <li><a href="assessment_form.php">📄 Assessment Form</a></li> 
-                <li><a href="classssched.php" class="active">🗓️ Class Schedule</a></li> <!-- ✅ ACTIVE -->
+                <li><a href="classssched.php" class="active">🗓️ Class Schedule</a></li>
                 <li><a href="view.php">📝 View Grades</a></li>
                 <li><a href="Academic_Records.php">📁 Academic Records</a></li>
                 <li><a href="payment_history.php">💵 Payment History</a></li>
-                <li><a href="messages.php">📩 Messages</a></li>
-                <li><a href="requirements.php">📑 Requirements</a></li>
                 <li><a href="Announcements.php">🔔 Announcements</a></li>
-                <li><a href="settings.php">⚙️ Settings</a></li>
+                <li><a href="change_password.php">🔐 Change Password</a></li>
                 <li><a href="help.php">❓ Help & Support</a></li>
             </ul>
 
@@ -304,7 +302,7 @@ $days_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday
                             <div class="subject-details">
                                 <div class="subject-code"><?php echo $item['code']; ?></div>
                                 <div class="subject-name"><?php echo $item['subject']; ?></div>
-                                <div class="teacher-name"><?php echo $item['teacher']; ?></div> <!-- ✅ TAMBAY DITO SI TEACHER -->
+                                <div class="teacher-name"><?php echo $item['teacher']; ?></div>
                             </div>
 
                             <!-- Oras -->

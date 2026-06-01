@@ -190,7 +190,7 @@ if(empty($enrolled_subjects)){
                 <li><a href="Profile.php">👤 My Profile</a></li>
                 <li><a href="add_subjects.php">📘 Enrollment</a></li> 
                 <li><a href="assessment_form.php" class="active">📄 Assessment Form</a></li> 
-                <li><a href="classsched.php">🗓️ Class Schedule</a></li>
+                <li><a href="classssched.php">🗓️ Class Schedule</a></li>
                 <li><a href="view.php">📝 View Grades</a></li>
                 <li><a href="Academic_Records.php">📁 Academic Records</a></li>
                 <li><a href="payment_history.php">💵 Payment History</a></li>

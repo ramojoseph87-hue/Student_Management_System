@@ -320,9 +320,8 @@ if(!empty($_SESSION['enrolled_ids'])){
                 <li><a href="Dashboard_Student.php">🏠 Dashboard</a></li>
                 <li><a href="Profile.php">👤 My Profile</a></li>
                 <li><a href="add_subjects.php" class="active">📘 Enrollment</a></li> 
-                <!-- ✅ IBINALIK KO NA ANG ASSESSMENT FORM DITO -->
-
-                
+                <li><a href="assessment_form.php">📄 Assessment Form</a></li> 
+                <li><a href="classssched.php">🗓️ Class Schedule</a></li>
                 <li><a href="view.php">📝 View Grades</a></li>
                 <li><a href="Academic_Records.php">📁 Academic Records</a></li>
                 <li><a href="payment_history.php">💵 Payment History</a></li>
@@ -460,7 +459,6 @@ if(!empty($_SESSION['enrolled_ids'])){
 
                     <!-- ✅ BUTTONS -->
                     <div class="button-group">
-                        <!-- ✅ PAPUNTA SA ASSESSMENT FORM NA DAPAT SUNOD -->
                         <a href="assessment_form.php" class="btn-primary">📄 PROCEED TO ASSESSMENT</a>
                         <form method="POST" action="add_subjects.php" onsubmit="return confirm('Clear all subjects?');">
                             <button type="submit" name="clear_all" class="btn-secondary">🗑️ Clear All</button>
@@ -473,7 +471,6 @@ if(!empty($_SESSION['enrolled_ids'])){
         </div>
     </div>
 
-    <!-- ✅ NASA student.js NA ANG IBA PANG JAVASCRIPT -->
     <script src="../student.js"></script>
 </body>
 </html>
