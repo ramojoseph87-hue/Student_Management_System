@@ -1,0 +1,6 @@
+* linguist-eol=lf
+*.php linguist-language=PHP
+*.css linguist-language=CSS
+*.js linguist-language=JavaScript
+*.hh linguist-language=PHP
+*.hack linguist-language=PHP
