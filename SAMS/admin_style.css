@@ -1,0 +1,443 @@
+/* ==============================================
+✅ BASE & VARIABLES - PAREHONG PAREHO SA STUDENT
+============================================== */
+:root {
+    /* ✅ COLOR PALETTE */
+    --primary: #1e40af;
+    --primary-light: #3b82f6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --gray: #64748b;
+    --text-muted: #64748b;
+
+    /* ✅ LIGHT MODE COLORS */
+    --bg-color: #f1f5f9;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --border-color: #cbd5e1;
+    --announce-bg: #f8fafc;
+}
+
+/* ✅ DARK MODE COLORS - KATUGMA NG SCREENSHOT MO */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-color: #f8fafc;
+    --border-color: #334155;
+    --announce-bg: #273449;
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    transition: all 0.3s ease; 
+    font-family: 'Segoe UI', Roboto, sans-serif; 
+}
+
+body { 
+    background-color: var(--bg-color); 
+    color: var(--text-color); 
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* ==============================================
+✅ LAYOUT STRUCTURE
+============================================== */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* ==============================================
+✅ SIDEBAR - AYOS NA AYOS, GAYANG-GAYA
+============================================== */
+.sidebar {
+    width: 260px;
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ✅ PARA NASA ILALIM LAGI ANG LOGOUT */
+    overflow-y: auto;
+    z-index: 100;
+}
+
+.sidebar-header {
+    padding: 20px 16px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.sidebar-header img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.sidebar-header h2 {
+    font-size: 1.1rem;
+    color: var(--primary-light);
+    font-weight: 700;
+}
+
+.sidebar-header p {
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+
+.sidebar-header hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 10px 0;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0 8px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.nav-links li {
+    margin-bottom: 2px;
+}
+
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    margin: 0 4px;
+    opacity: 0.8;
+}
+
+.nav-links li a:hover {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary-light);
+    opacity: 1;
+}
+
+.nav-links li a.active {
+    background-color: rgba(59, 130, 246, 0.15);
+    color: var(--primary-light);
+    font-weight: 600;
+    opacity: 1;
+}
+
+/* ✅ LOGOUT BUTTON - BUO, PULA, NASA ILALIM */
+.logout-btn {
+    padding: 12px 12px 20px 12px;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+}
+
+.logout-btn a {
+    display: block;
+    padding: 12px;
+    background-color: var(--danger) !important;
+    color: white !important;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.2s;
+}
+
+.logout-btn a:hover {
+    opacity: 0.9;
+    transform: scale(0.98);
+}
+
+/* ==============================================
+✅ MAIN CONTENT
+============================================== */
+.main-content { 
+    margin-left: 260px;
+    flex: 1;
+    min-height: 100vh; 
+    padding: 20px 24px;
+}
+
+/* ==============================================
+✅ DARK MODE SWITCH
+============================================== */
+.mode-switch {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #cbd5e1;
+    border-radius: 20px;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider { background-color: var(--primary-light); }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* ==============================================
+✅ WELCOME CARD
+============================================== */
+.welcome-card { 
+    background: linear-gradient(135deg, var(--primary), var(--primary-light)); 
+    color: white; 
+    padding: 24px 28px; 
+    border-radius: 12px; 
+    margin-bottom: 24px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-card h1 { 
+    font-size: 1.4rem; 
+    margin-bottom: 8px; 
+    font-weight: 600;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.9rem;
+    opacity: 0.92;
+}
+
+.semester-badge {
+    background-color: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.type-regular { color: #86efac; font-weight: 600; }
+.type-irregular { color: #fcd34d; font-weight: 600; }
+
+/* ==============================================
+✅ STATISTICS / CARDS
+============================================== */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px 16px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-card h3 {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.num {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.blue { color: var(--primary-light); }
+.red { color: var(--danger); }
+.green { color: var(--success); }
+.zero { color: var(--gray); }
+
+/* ==============================================
+✅ ANNOUNCEMENT SECTION
+============================================== */
+.announcement-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.announcement-card h2 {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.announcement-card h2 small {
+    font-size: 0.75rem;
+    opacity: 0.6;
+    font-weight: normal;
+    text-transform: none;
+}
+
+.announcement-item {
+    padding: 14px 16px;
+    background-color: var(--announce-bg);
+    border-left: 3px solid var(--primary-light);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.announcement-item:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.announcement-item h4 {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.announcement-item p {
+    font-size: 0.85rem;
+    color: var(--text-color);
+    opacity: 0.7;
+    margin-bottom: 6px;
+}
+
+.announcement-item small {
+    font-size: 0.75rem;
+    color: var(--text-color);
+    opacity: 0.6;
+}
+
+/* ==============================================
+✅ RESPONSIVE / GUMAGANA SA LAHAT
+============================================== */
+@media (max-width: 1024px) {
+    .sidebar { width: 220px; }
+    .main-content { margin-left: 220px; padding: 16px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .sidebar { 
+        width: 0; 
+        transform: translateX(-100%); 
+        box-shadow: none;
+    }
+    .sidebar.active { 
+        width: 260px; 
+        transform: translateX(0); 
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+    .main-content { margin-left: 0; width: 100%; padding: 12px; }
+    .stats-row { grid-template-columns: 1fr; }
+    .mode-switch { right: 15px; top: 15px; }
+    .welcome-card h1 { font-size: 1.1rem; }
+}
+
+/* ==============================================
+✅ CUSTOM SCROLLBAR - NAKATAGO KAPAG HINDI GINAGAMIT
+============================================== */
+
+/* Para sa Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.3) transparent;
+}
+
+/* Para sa Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 6px; /* Lapad ng scrollbar */
+  height: 6px;
+}
+
+/* Background ng daanan */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* Ang pang-ikot mismo */
+::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Default: NAKATAGO / WALANG KULAY */
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+/* Lalabas / MAGIGING KULAY kapag nag-hover o ini-scroll */
+*:hover::-webkit-scrollbar-thumb,
+*:active::-webkit-scrollbar-thumb {
+  background-color: rgba(59, 130, 246, 0.4); /* Kulay asul na katugma ng tema mo */
+}
+
+/* Itago talaga kapag hindi gumagalaw */
+.sidebar, .main-content {
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}

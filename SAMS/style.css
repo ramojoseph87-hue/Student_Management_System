@@ -1,0 +1,453 @@
+/* ==========================================
+   🎨 GLOBAL SETTINGS - SAINT THOMAS AQUINAS COLLEGE
+   Kulay: Dark Blue (#0A2463), Medium Blue (#1E50A2), Light Blue (#64B5F6)
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    background-color: #081E4E;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    transition: background-color 0.4s ease;
+}
+
+/* ==========================================
+   🔘 DARK / LIGHT MODE TOGGLE
+========================================== */
+.mode-switch {
+    position: absolute;
+    top: 22px;
+    right: 35px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #BBDEFB;
+    z-index: 100;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #64B5F6;
+    border-radius: 34px;
+    transition: 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+input:checked + .slider {
+    background-color: #1976D2;
+}
+
+input:checked + .slider:before {
+    transform: translateX(23px);
+}
+
+/* ==========================================
+   📦 MAIN WRAPPER - PANGUNAHING KAHON
+========================================== */
+.main-wrapper {
+    display: flex;
+    width: 880px;
+    max-width: 100%;
+    background: linear-gradient(145deg, #123880 0%, #0A2463 100%);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 
+                inset 0 1px 0 rgba(100, 180, 246, 0.18);
+    border: 1px solid rgba(100, 180, 246, 0.22);
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+/* ==========================================
+   🏫 KALIWA: BRANDING / LOGO AREA
+========================================== */
+.school-side {
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    text-align: center;
+    background-color: rgba(30, 80, 162, 0.1);
+    border-right: 1px solid rgba(100, 180, 246, 0.15);
+}
+
+.school-side img {
+    width: 125px;
+    height: auto;
+    margin-bottom: 18px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.school-side h2 {
+    color: #E3F2FD;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.school-side p {
+    color: #90CAF9;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.9;
+    letter-spacing: 0.3px;
+}
+
+/* ==========================================
+   📝 KANAN: FORM AREA (LOGIN & REGISTER)
+========================================== */
+.form-side {
+    width: 52%;
+    padding: 40px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(10, 36, 99, 0.05);
+}
+
+/* --- ✅ PAMAGAT NG FORM --- */
+.Login-Container h2, .Register-Container h2 {
+    text-align: center;
+    color: #64B5F6;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 24px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1E50A2;
+}
+
+/* --- ✅ FORM GROUPS & LABELS --- */
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    color: #BBDEFB;
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+}
+
+/* --- ✅ INPUTS & SELECT BOX --- */
+input, select {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: rgba(15, 50, 110, 0.45);
+    border: 1px solid rgba(100, 180, 246, 0.28);
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+input::placeholder {
+    color: #809EC9;
+    opacity: 0.75;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #42A5F5;
+    background-color: rgba(25, 70, 140, 0.55);
+    box-shadow: 0 0 0 2px rgba(66, 165, 245, 0.12);
+}
+
+/* ✅ CUSTOM DROPDOWN ARROW */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2390CAF9' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 16px;
+    padding-right: 35px;
+}
+
+/* --- ✅ BUTTON / PINDUTIN --- */
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #1E50A2 0%, #1565C0 100%);
+    color: #ffffff !important;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(21, 101, 192, 0.25);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #1565C0 0%, #0D47A1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(21, 101, 192, 0.35);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* --- ✅ TEXT & LINKS --- */
+p {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 14px;
+    color: #78909C;
+}
+
+p a {
+    color: #64B5F6;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+p a:hover {
+    color: #E3F2FD;
+    text-decoration: underline;
+}
+
+/* --- ✅ ALERT / ERROR / SUCCESS MESSAGE --- */
+p[style*="color:red"], p[style*="color:green"] {
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    font-size: 13px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* ==========================================
+   ☀️ LIGHT MODE VERSION
+========================================== */
+body:not(.dark-mode) {
+    background-color: #E3F2FD;
+}
+
+body:not(.dark-mode) .main-wrapper {
+    background: #ffffff;
+    border: 1px solid #BBDEFB;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+body:not(.dark-mode) .school-side {
+    background-color: #F5F9FF;
+    border-right: 1px solid #E0E7F3;
+}
+
+body:not(.dark-mode) .school-side h2 { color: #0A2463; }
+body:not(.dark-mode) .school-side p { color: #1E50A2; }
+
+body:not(.dark-mode) .Login-Container h2, 
+body:not(.dark-mode) .Register-Container h2 { 
+    color: #0A2463; 
+    border-bottom-color: #1E50A2;
+}
+
+body:not(.dark-mode) label { color: #0A2463; }
+
+body:not(.dark-mode) input, 
+body:not(.dark-mode) select {
+    background-color: #F8FBFF;
+    border: 1px solid #BBDEFB;
+    color: #000000;
+}
+
+body:not(.dark-mode) input::placeholder { color: #90A4AE; }
+
+body:not(.dark-mode) input:focus, 
+body:not(.dark-mode) select:focus {
+    border-color: #1976D2;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+}
+
+body:not(.dark-mode) select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A2463' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+}
+
+body:not(.dark-mode) button {
+    background: linear-gradient(90deg, #1E50A2 0%, #1976D2 100%);
+}
+
+body:not(.dark-mode) button:hover {
+    background: linear-gradient(90deg, #1976D2 0%, #1565C0 100%);
+}
+
+body:not(.dark-mode) p { color: #546E7A; }
+body:not(.dark-mode) p a { color: #1E50A2; }
+body:not(.dark-mode) p a:hover { color: #0A2463; }
+
+body:not(.dark-mode) .mode-switch { color: #0A2463; }
+
+/* ==========================================
+   🌙 DARK MODE VERSION
+========================================== */
+body.dark-mode {
+    background-color: #051530;
+}
+
+body.dark-mode .main-wrapper {
+    background: linear-gradient(145deg, #0A2050 0%, #051530 100%);
+    border-color: rgba(60, 140, 220, 0.2);
+}
+
+body.dark-mode .school-side {
+    background-color: rgba(10, 30, 70, 0.2);
+    border-right-color: rgba(60, 140, 220, 0.15);
+}
+
+/* ==========================================
+   📝 REGISTER PAGE EXTRA STYLES
+========================================== */
+.Register-Container {
+    width: 100%;
+}
+
+#student_fields, #teacher_admin_fields {
+    transition: all 0.3s ease;
+}
+
+/* ==========================================
+   📱 RESPONSIVE DESIGN - PARA SA LAHAT NG GADGET
+========================================== */
+
+/* --- 💻 TABLET (768px pababa) --- */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column; /* ✅ Patayo na ang ayos */
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .school-side {
+        width: 100%;
+        padding: 25px 15px;
+        border-right: none;
+        border-bottom: 1px solid rgba(100, 180, 246, 0.15);
+    }
+
+    .school-side img {
+        width: 100px;
+        margin-bottom: 10px;
+    }
+
+    .school-side h2 {
+        font-size: 18px;
+    }
+
+    .form-side {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    .mode-switch {
+        top: 10px;
+        right: 15px;
+    }
+
+    .form-row {
+        flex-direction: column; /* ✅ Isahan na lang ang kahon bawat linya */
+        gap: 10px;
+        margin-bottom: 10px;
+    }
+
+    .Login-Container h2, .Register-Container h2 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+}
+
+/* --- 📱 CELLPHONE (480px pababa) --- */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .school-side h2 {
+        font-size: 16px;
+    }
+
+    .school-side p {
+        font-size: 13px;
+    }
+
+    input, select, button {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    .mode-switch {
+        font-size: 12px;
+        top: 8px;
+        right: 10px;
+    }
+}
